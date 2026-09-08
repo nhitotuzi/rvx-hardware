@@ -7,7 +7,4 @@ VERILOG_FILES:
   - dir::rvx_mtimer.v
   - dir::rvx_spi.v
   - dir::rvx_uart.v
-  - dir::rvx_ram.v
 CLOCK_PORT: clock
-SYNTH_STRATEGY: "DELAY 0"
-SYNTH_SIZING: false

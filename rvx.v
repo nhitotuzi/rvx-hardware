@@ -31,7 +31,17 @@ module rvx #(
   output  wire                            sclk        ,
   output  wire                            pico        ,
   input   wire                            poci        ,
-  output  wire  [SPI_NUM_CHIP_SELECT-1:0] cs
+  output  wire  [SPI_NUM_CHIP_SELECT-1:0] cs          ,
+
+  // External RAM Interface
+  output  wire  [31:0]                    ram_rw_address,
+  input   wire  [31:0]                    ram_read_data,
+  output  wire                            ram_read_request,
+  input   wire                            ram_read_response,
+  output  wire  [31:0]                    ram_write_data,
+  output  wire  [3:0]                     ram_write_strobe,
+  output  wire                            ram_write_request,
+  input   wire                            ram_write_response
 
   );
 
@@ -197,30 +207,15 @@ module rvx #(
 
   );
 
-  rvx_ram #(
-
-    .MEMORY_SIZE                    (MEMORY_SIZE                        ),
-    .MEMORY_INIT_FILE               (MEMORY_INIT_FILE                   )
-
-  ) rvx_ram_instance (
-
-    // Global signals
-
-    .clock                          (clock                              ),
-    .reset                          (reset                              ),
-
-    // IO interface
-
-    .rw_address                     (device_rw_address                  ),
-    .read_data                      (device_read_data[32*D0_RAM +: 32]  ),
-    .read_request                   (device_read_request[D0_RAM]        ),
-    .read_response                  (device_read_response[D0_RAM]       ),
-    .write_data                     (device_write_data                  ),
-    .write_strobe                   (device_write_strobe                ),
-    .write_request                  (device_write_request[D0_RAM]       ),
-    .write_response                 (device_write_response[D0_RAM]      )
-
-  );
+  // Map internal bus signals to external RAM interface ports
+  assign ram_rw_address                = device_rw_address;
+  assign device_read_data[32*D0_RAM +: 32] = ram_read_data;
+  assign ram_read_request              = device_read_request[D0_RAM];
+  assign device_read_response[D0_RAM]  = ram_read_response;
+  assign ram_write_data                = device_write_data;
+  assign ram_write_strobe              = device_write_strobe;
+  assign ram_write_request             = device_write_request[D0_RAM];
+  assign device_write_response[D0_RAM] = ram_write_response;
 
   rvx_uart #(
 
