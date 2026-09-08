@@ -1,0 +1,13 @@
+DESIGN_NAME: rvx
+VERILOG_FILES: 
+  - dir::rvx.v
+  - dir::rvx_bus.v
+  - dir::rvx_core.v
+  - dir::rvx_gpio.v
+  - dir::rvx_mtimer.v
+  - dir::rvx_spi.v
+  - dir::rvx_uart.v
+  - dir::rvx_ram.v
+CLOCK_PORT: clock
+SYNTH_STRATEGY: "DELAY 0"
+SYNTH_SIZING: false
