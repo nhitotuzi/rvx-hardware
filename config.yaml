@@ -8,3 +8,5 @@ VERILOG_FILES:
   - dir::rvx_spi.v
   - dir::rvx_uart.v
 CLOCK_PORT: clock
+CLOCK_PERIOD: 20.0
+
