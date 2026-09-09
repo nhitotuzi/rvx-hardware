@@ -7,7 +7,12 @@ VERILOG_FILES:
   - dir::rvx_mtimer.v
   - dir::rvx_spi.v
   - dir::rvx_uart.v
-  - dir::rvx_ram.v
 CLOCK_PORT: clock
-SYNTH_STRATEGY: "DELAY 0"
-SYNTH_SIZING: false
+CLOCK_PERIOD: 20.0
+EXTRA_LEFS:
+  - dir::runs/ram_macro/results/final/lef/rvx_ram.lef
+EXTRA_LIBS:
+  - dir::runs/ram_macro/results/final/lib/rvx_ram.lib
+EXTRA_GDS_FILES:
+  - dir::runs/ram_macro/results/final/gds/rvx_ram.gds
+FP_PDN_MACRO_HOOKS: "rvx_ram_instance vdd vss vdd vss"
