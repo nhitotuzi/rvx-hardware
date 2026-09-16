@@ -27,4 +27,11 @@ EXTRA_GDS_FILES:
   - dir::runs/spi_macro/results/final/gds/rvx_spi.gds
   - dir::runs/uart_macro/results/final/gds/rvx_uart.gds
   - dir::runs/ram_macro/results/final/gds/rvx_ram.gds
-FP_PDN_MACRO_HOOKS: "rvx_core_instance vdd vss vdd vss, rvx_bus_instance vdd vss vdd vss, rvx_gpio_instance vdd vss vdd vss, rvx_mtimer_instance vdd vss vdd vss, rvx_spi_instance vdd vss vdd vss, rvx_uart_instance vdd vss vdd vss, rvx_ram_instance vdd vss vdd vss"
+PDN_MACRO_CONNECTIONS:
+  - rvx_core_instance vdd vss vdd vss
+  - rvx_bus_instance vdd vss vdd vss
+  - rvx_gpio_instance vdd vss vdd vss
+  - rvx_mtimer_instance vdd vss vdd vss
+  - rvx_spi_instance vdd vss vdd vss
+  - rvx_uart_instance vdd vss vdd vss
+  - rvx_ram_instance vdd vss vdd vss
