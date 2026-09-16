@@ -1,0 +1,9 @@
+DESIGN_NAME: rvx_gpio
+VERILOG_FILES:
+  - dir::rvx_gpio.v
+CLOCK_PORT: clock
+CLOCK_PERIOD: 20.0
+FP_SIZING: relative
+FP_CORE_UTIL: 50
+DESIGN_IS_CORE: 0
+FP_PDN_CORE_RING: 0

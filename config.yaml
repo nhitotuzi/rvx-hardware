@@ -1,0 +1,30 @@
+DESIGN_NAME: rvx
+VERILOG_FILES: 
+  - dir::rvx.v
+CLOCK_PORT: clock
+CLOCK_PERIOD: 20.0
+EXTRA_LEFS:
+  - dir::runs/core_macro/results/final/lef/rvx_core.lef
+  - dir::runs/bus_macro/results/final/lef/rvx_bus.lef
+  - dir::runs/gpio_macro/results/final/lef/rvx_gpio.lef
+  - dir::runs/mtimer_macro/results/final/lef/rvx_mtimer.lef
+  - dir::runs/spi_macro/results/final/lef/rvx_spi.lef
+  - dir::runs/uart_macro/results/final/lef/rvx_uart.lef
+  - dir::runs/ram_macro/results/final/lef/rvx_ram.lef
+EXTRA_LIBS:
+  - dir::runs/core_macro/results/final/lib/rvx_core.lib
+  - dir::runs/bus_macro/results/final/lib/rvx_bus.lib
+  - dir::runs/gpio_macro/results/final/lib/rvx_gpio.lib
+  - dir::runs/mtimer_macro/results/final/lib/rvx_mtimer.lib
+  - dir::runs/spi_macro/results/final/lib/rvx_spi.lib
+  - dir::runs/uart_macro/results/final/lib/rvx_uart.lib
+  - dir::runs/ram_macro/results/final/lib/rvx_ram.lib
+EXTRA_GDS_FILES:
+  - dir::runs/core_macro/results/final/gds/rvx_core.gds
+  - dir::runs/bus_macro/results/final/gds/rvx_bus.gds
+  - dir::runs/gpio_macro/results/final/gds/rvx_gpio.gds
+  - dir::runs/mtimer_macro/results/final/gds/rvx_mtimer.gds
+  - dir::runs/spi_macro/results/final/gds/rvx_spi.gds
+  - dir::runs/uart_macro/results/final/gds/rvx_uart.gds
+  - dir::runs/ram_macro/results/final/gds/rvx_ram.gds
+FP_PDN_MACRO_HOOKS: "rvx_core_instance vdd vss vdd vss, rvx_bus_instance vdd vss vdd vss, rvx_gpio_instance vdd vss vdd vss, rvx_mtimer_instance vdd vss vdd vss, rvx_spi_instance vdd vss vdd vss, rvx_uart_instance vdd vss vdd vss, rvx_ram_instance vdd vss vdd vss"
